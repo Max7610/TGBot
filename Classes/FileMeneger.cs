@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using TGBot;
+
+
 
 namespace TGBot.Classes
 {
@@ -14,9 +17,21 @@ namespace TGBot.Classes
         string pathSave;
         decimal[] mass;
         string[] massSt;
+        string eurusd;
         Random random;
         public FileMeneger()
+
         {
+            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+"//save");
+            if (!dirInfoS.Exists)
+            {
+                dirInfoS.Create();   
+            }
+            DirectoryInfo dirInfoD = new DirectoryInfo(Path() + "//data");
+            if (!dirInfoD.Exists)
+            {
+                dirInfoD.Create();
+            }
             path = Path() + @"\\data\\eurusd.txt";
             pathSave = Path() + @"\\save\\";
             random = new Random();
@@ -63,5 +78,7 @@ namespace TGBot.Classes
             string[] list = Directory.GetFiles(pathSave);
             return list.ToArray();
         }
+        
+
     }
 }

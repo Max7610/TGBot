@@ -31,11 +31,11 @@ namespace TGBot.Classes.telegramBot
         public TelegramBot()
         {
             Console.WriteLine("Запуск");
+            file = new FileMeneger();
             var client = new TelegramBotClient("5688737254:AAHRad9LW7Bd_joHoIgll4uylSzKS95P-9U");
             client.StartReceiving(Update, Error);
             Console.WriteLine("Запущен");
-            file = new FileMeneger();
-            Console.ReadLine();
+           
         }
         async Task Error(ITelegramBotClient botClient, Exception update, CancellationToken token)
         {
