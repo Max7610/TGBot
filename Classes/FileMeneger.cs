@@ -38,7 +38,13 @@ namespace TGBot.Classes
             pathSave = Path() + @"/save/";
             Console.WriteLine(path+"\n"+pathSave);
             random = new Random();
-            streamReader = new StreamReader(path);
+            try
+            {
+                streamReader = new StreamReader(path);
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             Read();
         }
         string Path()
