@@ -52,11 +52,18 @@ namespace TGBot.Classes.telegramBot
                 if (message.Text != null)
                 {
                     var MessText = update.Message.Text.Split('_');
+                    Console.WriteLine(update.Message.Text);
                     if (MessText[0] == "/a")
                     {
                         if (status)
                         {
-                            A(botClient, update, Convert.ToInt32(MessText[1]), Convert.ToDecimal(MessText[2]));
+                            try
+                            {
+                                A(botClient, update, Convert.ToInt32(MessText[1]), Convert.ToDecimal(MessText[2]));
+                            }catch
+                            {
+                                Console.WriteLine("ошибка ввода обучения");
+                            }
                             //string mess = LearnNeuron(Convert.ToInt32(MessText[1]), Convert.ToDecimal(MessText[2]));
                             //botClient.SendTextMessageAsync(update.Message.Chat.Id, mess);
                         }
@@ -70,7 +77,13 @@ namespace TGBot.Classes.telegramBot
                         if (status)
                         {
                             step = Convert.ToDecimal(MessText[1]);
-                            AutoA(botClient, update);
+                            try
+                            {
+                                AutoA(botClient, update);
+                            }catch
+                            {
+                                Console.WriteLine("Ошибка запуска автообучения");
+                            }
                         }
                         else
                         {
@@ -85,7 +98,13 @@ namespace TGBot.Classes.telegramBot
                     {
                         if (status)
                         {
-                            neuron.FileSave();
+                            try
+                            {
+                                neuron.FileSave();
+                            }catch
+                            {
+                                Console.WriteLine("Ошибка при сохранении файла");
+                            }
                         }
                         else
                         {
@@ -123,12 +142,21 @@ namespace TGBot.Classes.telegramBot
                     {
                         string mass = "";
                         int n = 0;
+                        try { 
                         foreach (var i in file.SaveList())
                         {
-                            mass += $"{n}) {i.Split('/')[i.Split('/').Length - 1]}\n";
+                            mass += $"{n}) {i.Split('/')[^-1]}\n";
                             n++;
                         }
-                        botClient.SendTextMessageAsync(update.Message.Chat.Id, mass);
+                        }
+                        catch { Console.WriteLine("Ошибка моздания списка сохранений"); }
+                        try
+                        {
+                            botClient.SendTextMessageAsync(update.Message.Chat.Id, mass);
+                        }catch
+                        {
+                            Console.WriteLine("Ошибка отправки списка сохранений");
+                        }
                     }
                     if (MessText[0] == "/o")
                     {
