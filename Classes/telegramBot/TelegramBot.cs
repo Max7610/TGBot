@@ -125,7 +125,7 @@ namespace TGBot.Classes.telegramBot
                         int n = 0;
                         foreach (var i in file.SaveList())
                         {
-                            mass += $"{n}) {i.Split('\\')[i.Split('\\').Length - 1]}\n";
+                            mass += $"{n}) {i.Split('/')[i.Split('/').Length - 1]}\n";
                             n++;
                         }
                         botClient.SendTextMessageAsync(update.Message.Chat.Id, mass);
@@ -199,7 +199,7 @@ namespace TGBot.Classes.telegramBot
         }
         async void Abmp(ITelegramBotClient botClient, Update update)
         {
-            string path = Path() + "\\1.bmp";
+            string path = Path() + "/1.bmp";
             try
             {
                 using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -217,7 +217,7 @@ namespace TGBot.Classes.telegramBot
         }
         async void Atxt(ITelegramBotClient botClient, Update update, string p)
         {
-            string path = Path() + "\\1.bmp";
+            string path = Path() + "/1.bmp";
             try
             {
                 using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -236,7 +236,7 @@ namespace TGBot.Classes.telegramBot
         string Path()
         {
             string path = Directory.GetCurrentDirectory();
-            path = path.Replace(@"\", @"\\");
+
             return path;
         }
 
