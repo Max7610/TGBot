@@ -34,7 +34,7 @@ namespace TGBot.Classes
                 dirInfoD.Create();
             }
             Console.WriteLine(Path());
-            path = Path() + @"/data/eurusd.txt";
+            path = Path() + @"/date/eurusd.txt";
             pathSave = Path() + @"/save/";
             Console.WriteLine(path+"\n"+pathSave);
             random = new Random();
