@@ -16,5 +16,10 @@ void A()
     {
         Console.WriteLine(i);
     }
+    var b = Directory.GetDirectories(Directory.GetCurrentDirectory());
+    foreach(var i in b)
+    {
+        Console.WriteLine(i);
+    }
 }
 
