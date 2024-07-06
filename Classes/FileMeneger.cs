@@ -33,10 +33,8 @@ namespace TGBot.Classes
             {
                 dirInfoD.Create();
             }
-            Console.WriteLine(Path());
             path = Path() + @"/date/eurusd.txt";
             pathSave = Path() + @"/save/";
-            Console.WriteLine(path+"\n"+pathSave);
             random = new Random();
             try
             {
@@ -85,6 +83,7 @@ namespace TGBot.Classes
         public string[] SaveList()
         {
             string[] list = Directory.GetFiles(pathSave);
+            foreach (var i in list) Console.WriteLine(i);
             return list.ToArray();
         }
         decimal ConvertDecimal(string s)
