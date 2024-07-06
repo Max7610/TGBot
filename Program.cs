@@ -4,7 +4,14 @@ using TGBot.Classes.telegramBot;
 
 Console.WriteLine("Запуск программ");
 
-TelegramBot telegramBot = new TelegramBot();
+try
+{
+    TelegramBot telegramBot = new TelegramBot();
+}catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+
 while (true)
 {
     Thread.Sleep(500000);
