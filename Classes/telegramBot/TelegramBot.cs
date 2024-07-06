@@ -31,7 +31,14 @@ namespace TGBot.Classes.telegramBot
         public TelegramBot()
         {
             Console.WriteLine("Запуск");
-            file = new FileMeneger();
+            try
+            {
+                file = new FileMeneger();
+            }
+            catch
+            {
+                Console.WriteLine($"Ошибка создания FileMeneger {DateTime.Now}");
+            }
             var client = new TelegramBotClient("5688737254:AAHRad9LW7Bd_joHoIgll4uylSzKS95P-9U");
             client.StartReceiving(Update, Error);
             Console.WriteLine("Запущен");
@@ -45,7 +52,6 @@ namespace TGBot.Classes.telegramBot
         async Task Update(ITelegramBotClient botClient, Update update, CancellationToken token)
         {
             var message = update.Message;
-            DateTime time = DateTime.Now;
 
             if (message != null)
             {
@@ -113,10 +119,17 @@ namespace TGBot.Classes.telegramBot
                     }
                     if (MessText[0] == "/m")
                     {
-                        int[] st = statusRead(MessText);
-                        botClient.SendTextMessageAsync(update.Message.Chat.Id, statusToString(st));
-                        neuron = new NeuronMeneger(st);
-                        status = true;
+                        try
+                        {
+                            int[] st = statusRead(MessText);
+                            botClient.SendTextMessageAsync(update.Message.Chat.Id, statusToString(st));
+                            neuron = new NeuronMeneger(st);
+                            status = true;
+                        }catch
+                        {
+                            Console.WriteLine("Ошибка создания нейросети");
+                            botClient.SendTextMessageAsync(update.Message.Chat.Id, "Ошибка создания нейросети");
+                        }
                     }
                     if (MessText[0] == "/t")
                     {
