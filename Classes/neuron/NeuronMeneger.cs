@@ -32,7 +32,7 @@ namespace TGBot.Classes.neuron
         public NeuronMeneger(string p)
         {
             fileMeneger = new FileMeneger();
-            string path = "save\\" + p.Split('\\')[p.Split('\\').Length - 1];
+            string path = "save/" + p.Split('/')[p.Split('/').Length - 1];
             string fileString = "";
             try
             {
@@ -181,7 +181,7 @@ namespace TGBot.Classes.neuron
         {
             DateTime dataTime = new DateTime();
             string fileName = NeyronStruct() + "_" + dataTime + ".txt";
-            string path = Path() + "\\save\\" + fileName;
+            string path = Path() + "/save/" + fileName;
             if (!File.Exists(path))
             {
                 using (StreamWriter sw = File.CreateText(path))
@@ -216,19 +216,19 @@ namespace TGBot.Classes.neuron
         string Path()
         {
             string path = Directory.GetCurrentDirectory();
-            path = path.Replace(@"\", @"\\");
+            
             return path;
         }
         public List<string> SaveList()
         {
             List<string> list = new List<string>();
             var path = Directory.GetCurrentDirectory();
-            path += @"\save";
-            path = path.Replace(@"\", @"\\");
+            path += @"/save";
+            
             var l = Directory.GetFiles(path);
             foreach (var f in l)
             {
-                var a = f.Replace(@"\", " ");
+                var a = f.Replace(@"/", " ");
                 list.Add(a.Split(' ')[a.Split(' ').Length - 1]);
             }
             return list;

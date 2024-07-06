@@ -23,18 +23,18 @@ namespace TGBot.Classes
         public FileMeneger()
 
         {
-            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+@"\save");
+            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+@"/save");
             if (!dirInfoS.Exists)
             {
                 dirInfoS.Create();   
             }
-            DirectoryInfo dirInfoD = new DirectoryInfo(Path() + @"\data");
+            DirectoryInfo dirInfoD = new DirectoryInfo(Path() + @"/data");
             if (!dirInfoD.Exists)
             {
                 dirInfoD.Create();
             }
-            path = Path() + @"\data\eurusd.txt";
-            pathSave = Path() + @"\save\";
+            path = Path() + @"/data/eurusd.txt";
+            pathSave = Path() + @"/save/";
             random = new Random();
             streamReader = new StreamReader(path);
             Read();

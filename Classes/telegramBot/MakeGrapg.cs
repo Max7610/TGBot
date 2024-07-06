@@ -26,7 +26,7 @@ namespace TGBot.Classes.telegramBot
             }
             try
             {
-                b.Save(Path() + @"\1.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
+                b.Save(Path() + @"/1.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
             }
             catch
             {
