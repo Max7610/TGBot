@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using TGBot;
+using System.Globalization;
 
 
 
@@ -22,18 +23,18 @@ namespace TGBot.Classes
         public FileMeneger()
 
         {
-            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+"//save");
+            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+@"\save");
             if (!dirInfoS.Exists)
             {
                 dirInfoS.Create();   
             }
-            DirectoryInfo dirInfoD = new DirectoryInfo(Path() + "//data");
+            DirectoryInfo dirInfoD = new DirectoryInfo(Path() + @"\data");
             if (!dirInfoD.Exists)
             {
                 dirInfoD.Create();
             }
-            path = Path() + @"\\data\\eurusd.txt";
-            pathSave = Path() + @"\\save\\";
+            path = Path() + @"\data\eurusd.txt";
+            pathSave = Path() + @"\save\";
             random = new Random();
             streamReader = new StreamReader(path);
             Read();
@@ -41,7 +42,7 @@ namespace TGBot.Classes
         string Path()
         {
             string path = Directory.GetCurrentDirectory();
-            path = path.Replace(@"\", @"\\");
+           
             return path;
         }
         void Read()
@@ -57,10 +58,10 @@ namespace TGBot.Classes
             for (int i = 0; i < n * 4 - 4; i += 4)
             {
                 string[] st = massSt[i / 4].Split(',');
-                mass[i] = decimal.Parse(st[2]);
-                mass[i + 1] = decimal.Parse(st[3]);
-                mass[i + 2] = decimal.Parse(st[4]);
-                mass[i + 3] = decimal.Parse(st[5]);
+                mass[i] = ConvertDecimal(st[2]);
+                mass[i + 1] = ConvertDecimal(st[3]);
+                mass[i + 2] = ConvertDecimal(st[4]);
+                mass[i + 3] = ConvertDecimal(st[5]);
             }
         }
         public decimal[] ReadRandomArray(int input, int output)
@@ -77,6 +78,15 @@ namespace TGBot.Classes
         {
             string[] list = Directory.GetFiles(pathSave);
             return list.ToArray();
+        }
+        decimal ConvertDecimal(string s)
+        {
+            decimal number = 0;
+            if (Decimal.TryParse(s, NumberStyles.Number, CultureInfo.CreateSpecificCulture("fr-FR"), out  number))
+                return number;
+            else if (Decimal.TryParse(s, NumberStyles.Number, CultureInfo.CreateSpecificCulture("en-GB"), out number))
+                return number;
+            return number;
         }
         
 
