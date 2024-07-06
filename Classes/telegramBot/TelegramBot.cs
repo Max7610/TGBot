@@ -182,6 +182,7 @@ namespace TGBot.Classes.telegramBot
                         catch (Exception ex)
                         {
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
+                            Console.WriteLine(ex.Message);
                         }
                     }
                     if (MessText[0] == "/img")

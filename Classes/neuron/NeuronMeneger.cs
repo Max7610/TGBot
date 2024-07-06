@@ -19,6 +19,7 @@ namespace TGBot.Classes.neuron
         public decimal statistic;
         public NeuronMeneger(int[] lauers)
         {
+            fileMeneger = new FileMeneger();
             _neyronStruct = lauers;
             var a = new NeuronLayer(_neyronStruct[0], _neyronStruct[0]);
             _layers.Add(a);
@@ -27,7 +28,6 @@ namespace TGBot.Classes.neuron
                 a = new NeuronLayer(_neyronStruct[i], _neyronStruct[i - 1]);
                 _layers.Add(a);
             }
-            fileMeneger = new FileMeneger();
         }
         public NeuronMeneger(string p)
         {
