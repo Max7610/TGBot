@@ -2,7 +2,8 @@
 using System.Globalization;
 using TGBot.Classes.telegramBot;
 
-Console.WriteLine("Запуск программ");
+DateTime d = new DateTime();
+Console.WriteLine("Запуск программ"+ d.Date.ToString());
 
 try
 {
