@@ -149,7 +149,7 @@ namespace TGBot.Classes.telegramBot
                             n++;
                         }
                         }
-                        catch { Console.WriteLine("Ошибка моздания списка сохранений"); }
+                        catch(Exception ex) { Console.WriteLine("Ошибка создания списка сохранений"+ex.Message); }
                         try
                         {
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, mass);
