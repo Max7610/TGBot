@@ -33,8 +33,10 @@ namespace TGBot.Classes
             {
                 dirInfoD.Create();
             }
+            Console.WriteLine(Path());
             path = Path() + @"/data/eurusd.txt";
             pathSave = Path() + @"/save/";
+            Console.WriteLine(path+"\n"+pathSave);
             random = new Random();
             streamReader = new StreamReader(path);
             Read();
