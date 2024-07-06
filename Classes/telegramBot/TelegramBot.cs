@@ -159,6 +159,7 @@ namespace TGBot.Classes.telegramBot
                         foreach (var i in file.SaveList())
                         {
                             mass += $"{n}) {i.Split('/')[i.Split('/').Length-1]}\n";
+                            Console.WriteLine($"{n}) {i.Split('/')[i.Split('/').Length - 1]}\n");
                             n++;
                         }
                         }
