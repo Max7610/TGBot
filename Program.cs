@@ -7,7 +7,7 @@ A();
 TelegramBot telegramBot = new TelegramBot();
 
 
-Console.ReadKey();
+
 
 void A()
 {
