@@ -279,14 +279,14 @@ namespace TGBot.Classes.neuron
                 res += $"оригинал {outp[i]} результат {r[i] * 2} разность {outp[i] - (r[i] * 2)} \n";
             }
             Console.WriteLine("Получен результат");
-            try
-            {
-                MakeGrapg grapg = new MakeGrapg();
-                grapg.DrawGraph(inp, outp);
-            }catch (Exception ex)
-            {
-                Console.WriteLine($"Ошибка создания изображения {ex.Message}");
-            }
+            //try
+            //{
+            //    MakeGrapg grapg = new MakeGrapg();
+            //    grapg.DrawGraph(inp, outp);
+            //}catch (Exception ex)
+            //{
+            //    Console.WriteLine($"Ошибка создания изображения {ex.Message}");
+            //}
             return res;
         }
         public object Clone()

@@ -144,14 +144,14 @@ namespace TGBot.Classes.telegramBot
                             {
                                 Console.WriteLine($"Тест провален. {ex.Message}");
                             }
-                            try
-                            {
-                                Tbmp(botClient, update);
-                            }
-                            catch (Exception ex)
-                            {
-                                botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
-                            }
+                            //try
+                            //{
+                            //    Tbmp(botClient, update);
+                            //}
+                            //catch (Exception ex)
+                            //{
+                            //    botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
+                            //}
                         }
                         else
                         {
