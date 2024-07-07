@@ -226,6 +226,19 @@ namespace TGBot.Classes.telegramBot
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
                         }
                     }
+                    if (MessText[0] == "/ToString")
+                    {
+                        if(status)
+                        {
+                            botClient.SendTextMessageAsync(update.Message.Chat.Id, neuron.ToString());
+                            Console.WriteLine(neuron.ToString());
+                        }
+                        else
+                        {
+                            botClient.SendTextMessageAsync(update.Message.Chat.Id, "Создайте/загрузите нейросеть");
+                            Console.WriteLine("Создайте/загрузите нейросеть");
+                        }
+                    }
 
                 }
                 return;
