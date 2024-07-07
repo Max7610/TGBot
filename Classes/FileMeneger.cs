@@ -88,7 +88,7 @@ namespace TGBot.Classes
             foreach (var i in list) Console.WriteLine(i);
             return list.ToArray();
         }
-        decimal ConvertDecimal(string s)
+        public decimal ConvertDecimal(string s)
         {
             decimal number = 0;
             if (Decimal.TryParse(s, NumberStyles.Number, CultureInfo.CreateSpecificCulture("fr-FR"), out  number))

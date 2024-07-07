@@ -65,7 +65,7 @@ namespace TGBot.Classes.telegramBot
                         {
                             try
                             {
-                                A(botClient, update, Convert.ToInt32(MessText[1]), Convert.ToDecimal(MessText[2]));
+                                A(botClient, update, Convert.ToInt32(MessText[1]), file.ConvertDecimal(MessText[2]));
                             }catch
                             {
                                 Console.WriteLine("ошибка ввода обучения");
@@ -82,7 +82,7 @@ namespace TGBot.Classes.telegramBot
                     {
                         if (status)
                         {
-                            step = Convert.ToDecimal(MessText[1]);
+                            step =file.ConvertDecimal(MessText[1]);
                             try
                             {
                                 AutoA(botClient, update);
