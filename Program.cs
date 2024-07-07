@@ -9,8 +9,7 @@ while (true)
 {
     try
     {
-        var c = Console.In.Read();
-        Console.WriteLine("input:" + c);
+    Console.In.Read();
     }
     catch (Exception ex)
     {
