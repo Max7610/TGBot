@@ -332,8 +332,8 @@ namespace TGBot.Classes.telegramBot
                     res += ($" Обучаем \n");
                     n.LearningForFile(10000, step);
                     neuron = n;
-                    res += (neuron.TestForFile());
-                    botClient.SendTextMessageAsync(update.Message.Chat.Id, res);
+                    //res += (neuron.TestForFile());
+                    botClient.SendTextMessageAsync(update.Message.Chat.Id, "Цикл обучения пройден");
                 }
             });
             botClient.SendTextMessageAsync(update.Message.Chat.Id, "Авто обучение завершено");
