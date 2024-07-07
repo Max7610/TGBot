@@ -23,10 +23,10 @@ namespace TGBot.Classes
         public FileMeneger()
 
         {
-            DirectoryInfo dirInfoS = new DirectoryInfo(Path()+@"/save");
+            DirectoryInfo dirInfoS = new DirectoryInfo(Path() + @"/save");
             if (!dirInfoS.Exists)
             {
-                dirInfoS.Create();   
+                dirInfoS.Create();
             }
             DirectoryInfo dirInfoD = new DirectoryInfo(Path() + @"/data");
             if (!dirInfoD.Exists)
@@ -39,7 +39,7 @@ namespace TGBot.Classes
             try
             {
                 streamReader = new StreamReader(path);
-            }catch(Exception ex)
+            } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -48,7 +48,7 @@ namespace TGBot.Classes
         string Path()
         {
             string path = Directory.GetCurrentDirectory();
-           
+
             return path;
         }
         void Read()
@@ -68,6 +68,14 @@ namespace TGBot.Classes
                 mass[i + 1] = ConvertDecimal(st[3]);
                 mass[i + 2] = ConvertDecimal(st[4]);
                 mass[i + 3] = ConvertDecimal(st[5]);
+            }
+            ConsolWriteDate();
+        }
+        void ConsolWriteDate()
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(mass[i]);
             }
         }
         public decimal[] ReadRandomArray(int input, int output)
