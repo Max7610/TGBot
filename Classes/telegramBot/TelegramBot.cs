@@ -231,11 +231,16 @@ namespace TGBot.Classes.telegramBot
                         if(status)
                         {
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, neuron.ToString());
+                            foreach (var i in neuron.ToString().Split('*'))
+                            {
+                                Console.WriteLine(i);
+                            }
                             Console.WriteLine(neuron.ToString());
                         }
                         else
                         {
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, "Создайте/загрузите нейросеть");
+                           
                             Console.WriteLine("Создайте/загрузите нейросеть");
                         }
                     }
@@ -351,5 +356,6 @@ namespace TGBot.Classes.telegramBot
             });
             botClient.SendTextMessageAsync(update.Message.Chat.Id, "Авто обучение завершено");
         }
+
     }
 }

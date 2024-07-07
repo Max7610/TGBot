@@ -69,15 +69,9 @@ namespace TGBot.Classes
                 mass[i + 2] = ConvertDecimal(st[4]);
                 mass[i + 3] = ConvertDecimal(st[5]);
             }
-            ConsolWriteDate();
+           
         }
-        void ConsolWriteDate()
-        {
-            for(int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(mass[i]);
-            }
-        }
+        
         public decimal[] ReadRandomArray(int input, int output)
         {
             decimal[] resault = new decimal[input + output];
