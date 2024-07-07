@@ -72,6 +72,7 @@ namespace TGBot.Classes.telegramBot
                             }
                             //string mess = LearnNeuron(Convert.ToInt32(MessText[1]), Convert.ToDecimal(MessText[2]));
                             //botClient.SendTextMessageAsync(update.Message.Chat.Id, mess);
+                            //1
                         }
                         else
                         {

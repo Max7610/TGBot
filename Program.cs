@@ -15,7 +15,8 @@ try
 
 while (true)
 {
-    Thread.Sleep(500000);
+    Thread.Sleep(5000000);
+    Console.WriteLine(1);
 }
 Console.WriteLine("END");
 
