@@ -135,11 +135,18 @@ namespace TGBot.Classes.telegramBot
                     {
                         if (status)
                         {
-                            var s = neuron.TestForFile();
-                            botClient.SendTextMessageAsync(update.Message.Chat.Id, s);
                             try
                             {
-                                Abmp(botClient, update);
+                                var s = neuron.TestForFile();
+                                botClient.SendTextMessageAsync(update.Message.Chat.Id, s);
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine($"Тест провален. {ex.Message}");
+                            }
+                            try
+                            {
+                                Tbmp(botClient, update);
                             }
                             catch (Exception ex)
                             {
@@ -187,7 +194,7 @@ namespace TGBot.Classes.telegramBot
                     }
                     if (MessText[0] == "/img")
                     {
-                        Abmp(botClient, update);
+                        Tbmp(botClient, update);
                     }
                     if (MessText[0] == "/p")
                     {
@@ -240,7 +247,7 @@ namespace TGBot.Classes.telegramBot
                 botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
             }
         }
-        async void Abmp(ITelegramBotClient botClient, Update update)
+        async void Tbmp(ITelegramBotClient botClient, Update update)
         {
             string path = Path() + "/1.bmp";
             try
@@ -256,6 +263,7 @@ namespace TGBot.Classes.telegramBot
             catch (Exception ex)
             {
                 botClient.SendTextMessageAsync(update.Message.Chat.Id, ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
         async void Atxt(ITelegramBotClient botClient, Update update, string p)
