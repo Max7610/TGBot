@@ -229,13 +229,11 @@ namespace TGBot.Classes.telegramBot
                     if (MessText[0] == "/ToString")
                     {
                         if(status)
-                        {
-                            
+                        { 
                             foreach (var i in neuron.ToString().Split('$'))
                             {
                                 Console.WriteLine(i);
                             }
-                           
                         }
                         else
                         {
