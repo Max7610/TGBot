@@ -261,6 +261,7 @@ namespace TGBot.Classes.neuron
             int countInput = _neyronStruct[0];
             int countOutput = _neyronStruct[_neyronStruct.Length - 1];
             decimal[] a = fileMeneger.ReadRandomArray(countInput, countOutput);
+            Console.WriteLine($"выбран рандомный интервал {a.Length}");
             decimal[] inp = new decimal[countInput];
             decimal[] outp = new decimal[countOutput];
             for (int j = 0; j < countInput; j++)
@@ -271,13 +272,21 @@ namespace TGBot.Classes.neuron
             {
                 outp[j - countInput] = a[j];
             }
+            Console.WriteLine($"Сгенерированы входные и выходные данные {inp.Length}  {outp.Length}") ;
             var r = Colculait(inp);
             for (int i = 0; i < countOutput; i++)
             {
                 res += $"оригинал {outp[i]} результат {r[i] * 2} разность {outp[i] - (r[i] * 2)} \n";
             }
-            MakeGrapg grapg = new MakeGrapg();
-            grapg.DrawGraph(inp, outp);
+            Console.WriteLine("Получен результат");
+            try
+            {
+                MakeGrapg grapg = new MakeGrapg();
+                grapg.DrawGraph(inp, outp);
+            }catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка создания изображения {ex.Message}");
+            }
             return res;
         }
         public object Clone()
