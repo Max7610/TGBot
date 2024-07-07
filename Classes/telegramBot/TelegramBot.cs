@@ -231,7 +231,7 @@ namespace TGBot.Classes.telegramBot
                         if(status)
                         {
                             botClient.SendTextMessageAsync(update.Message.Chat.Id, neuron.ToString());
-                            foreach (var i in neuron.ToString().Split('*'))
+                            foreach (var i in neuron.ToString().Split('$'))
                             {
                                 Console.WriteLine(i);
                             }
