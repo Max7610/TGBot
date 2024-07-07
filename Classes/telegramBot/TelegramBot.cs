@@ -230,12 +230,12 @@ namespace TGBot.Classes.telegramBot
                     {
                         if(status)
                         {
-                            botClient.SendTextMessageAsync(update.Message.Chat.Id, neuron.ToString());
+                            
                             foreach (var i in neuron.ToString().Split('$'))
                             {
                                 Console.WriteLine(i);
                             }
-                            Console.WriteLine(neuron.ToString());
+                           
                         }
                         else
                         {
