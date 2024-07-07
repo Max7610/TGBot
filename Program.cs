@@ -5,7 +5,7 @@ using TGBot.Classes.telegramBot;
 
 Console.WriteLine("Запуск программ " + DateTime.Now);
 Start();
-Console.Read();
+Console.ReadLine();
 Console.WriteLine("END");
 
 async void Start()
